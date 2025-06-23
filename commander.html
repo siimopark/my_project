@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander - Mon Projet Bois</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Logo Mon Projet Bois">
+                <h1>Mon Projet Bois</h1>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="packs.html">Nos Packs</a></li>
+                    <li><a href="commander.html" class="active">Commander</a></li>
+                    <li><a href="avis.html">Avis Clients</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" aria-label="Basculer le thème clair/sombre">
+                <img src="assets/images/icon-moon.png" alt="Mode Sombre">
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="order-hero">
+            <div class="container">
+                <h2>Votre Commande Personnalisée</h2>
+                <p>Configurez votre ensemble de tables et chaises pliantes sur mesure.</p>
+            </div>
+        </section>
+
+        <section id="order-form-section">
+            <div class="container">
+                <form id="order-form">
+                    <h3>1. Choisissez votre Pack</h3>
+                    <div class="form-group">
+                        <label for="pack-select">Sélectionnez un pack :</label>
+                        <select id="pack-select" name="pack">
+                            <option value="none">-- Choisissez un pack --</option>
+                            <option value="bistro" data-price="249">Pack Bistro Intime (249€)</option>
+                            <option value="familial" data-price="699">Pack Table Familiale (699€)</option>
+                            <option value="chaises" data-price="99">Paire de Chaises (99€)</option>
+                            <option value="bureau" data-price="189">Bureau Pliant Solo (189€)</option>
+                        </select>
+                    </div>
+
+                    <h3>2. Personnalisez votre Bois</h3>
+                    <div class="form-group">
+                        <label for="wood-type">Type de bois :</label>
+                        <select id="wood-type" name="wood">
+                            <option value="chene" data-price-modifier="1.2">Chêne Massif (+20%)</option>
+                            <option value="hetre" data-price-modifier="1.0">Hêtre Naturel</option>
+                            <option value="noyer" data-price-modifier="1.3">Noyer Teinté (+30%)</option>
+                        </select>
+                    </div>
+
+                    <h3>3. Choisissez la Finition</h3>
+                    <div class="form-group">
+                        <label for="finish-type">Finition :</label>
+                        <select id="finish-type" name="finish">
+                            <option value="vernis" data-price-modifier="1.0">Vernis Mat</option>
+                            <option value="huile" data-price-modifier="1.05">Huile Protectrice (+5%)</option>
+                            <option value="cire" data-price-modifier="1.02">Cire Naturelle (+2%)</option>
+                        </select>
+                    </div>
+
+                    <h3>4. Quantité</h3>
+                    <div class="form-group">
+                        <label for="quantity">Quantité :</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1">
+                    </div>
+                </form>
+
+                <div class="order-summary">
+                    <h3>Récapitulatif de votre commande</h3>
+                    <div class="summary-details">
+                        <p>Pack sélectionné : <span id="summary-pack">Aucun</span></p>
+                        <p>Type de bois : <span id="summary-wood">Chêne Massif</span></p>
+                        <p>Finition : <span id="summary-finish">Vernis Mat</span></p>
+                        <p>Quantité : <span id="summary-quantity">1</span></p>
+                    </div>
+                    <div class="total-price">
+                        <p>Prix estimé : <span id="estimated-price">0.00€</span></p>
+                    </div>
+                    <button type="button" class="btn-primary" id="confirm-order-btn">Confirmer la demande de devis</button>
+                    <p class="disclaimer">Ce prix est une estimation. Un devis détaillé vous sera envoyé après confirmation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="delivery-info-cta">
+            <div class="container">
+                <h2>Livraison et Installation</h2>
+                <p>Nous assurons une livraison soignée et, sur demande, une installation professionnelle de votre mobilier.</p>
+                <a href="contact.html" class="btn-secondary">En savoir plus sur la livraison</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mon Projet Bois. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><img src="assets/images/facebook-icon.png" alt="Facebook"></a>
+                <a href="#" aria-label="Instagram"><img src="assets/images/instagram-icon.png" alt="Instagram"></a>
+                <a href="#" aria-label="WhatsApp"><img src="assets/images/whatsapp-icon.png" alt="WhatsApp"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/commander.js"></script> </body>
+</html>

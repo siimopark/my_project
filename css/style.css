@@ -1,0 +1,1341 @@
+/* Variables CSS pour faciliter la gestion des couleurs et polices */
+:root {
+    --primary-color: #2E8B57; /* Vert Forêt - couleur principale */
+    --secondary-color: #A0522D; /* Terre de Sienne - couleur secondaire pour accents */
+    --text-color: #333;
+    --light-text-color: #fff;
+    --bg-light: #f9f9f9;
+    --bg-dark: #222;
+    --font-family-primary: 'Arial', sans-serif;
+    --font-family-secondary: 'Georgia', serif;
+    --header-height: 70px; /* Hauteur estimée de l'en-tête */
+    --footer-height: 80px; /* Hauteur estimée du pied de page */
+
+    /* NOUVELLES VARIABLES POUR LE MODE SOMBRE */
+    --dark-mode-bg: #1a1a1a; /* Arrière-plan principal sombre */
+    --dark-mode-text: #e0e0e0; /* Texte clair pour le mode sombre */
+    --dark-mode-card-bg: #2a2a2a; /* Arrière-plan des cartes en mode sombre */
+    --dark-mode-header-footer-bg: #0d0d0d; /* Arrière-plan de l'en-tête/pied de page en mode sombre */
+    --dark-mode-border: #444; /* Bordures en mode sombre */
+}
+
+/* Réinitialisation de base pour tous les éléments */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la taille totale de l'élément */
+}
+
+html {
+    scroll-behavior: smooth; /* Rend le défilement fluide pour les ancres */
+}
+
+body {
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Le corps prend au moins toute la hauteur de la vue */
+    /* overflow-y: auto; */ /* Nous laissons le défilement par défaut pour éviter le contenu coupé */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce pour le changement de thème */
+}
+
+/* Conteneur général pour centrer le contenu */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Largeur maximale pour éviter que le contenu ne s'étire trop sur de grands écrans */
+    margin: 0 auto;
+    padding: 10px 20px; /* Padding latéral fixe pour le contenu */
+}
+
+/* En-tête */
+header {
+    background: var(--bg-dark);
+    color: var(--light-text-color);
+    padding: 10px 0; /* Padding réduit */
+    border-bottom: 3px solid var(--primary-color);
+    flex-shrink: 0; /* Empêche l'en-tête de rétrécir */
+    height: var(--header-height);
+    display: flex; /* Pour centrer le contenu verticalement si nécessaire */
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition douce pour le changement de thème */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light-text-color);
+}
+
+header .logo img {
+    height: 45px; /* Taille du logo légèrement réduite */
+    margin-right: 10px;
+}
+
+header .logo h1 {
+    font-size: 1.6em; /* Taille du titre légèrement réduite */
+    margin: 0;
+    font-family: var(--font-family-secondary);
+    white-space: nowrap; /* Empêche le titre de passer à la ligne */
+    transition: color 0.3s ease; /* Transition douce pour le changement de thème */
+}
+
+/* Navigation */
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px; /* Espacement entre les liens réduit */
+}
+
+header nav ul li a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em; /* Taille de police des liens légèrement réduite */
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Empêche les liens de passer à la ligne */
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: var(--primary-color);
+}
+
+/* Styles pour le bouton de bascule du thème */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 20px;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+#theme-toggle img {
+    height: 28px; /* Taille de l'icône */
+    width: 28px;
+    filter: invert(1); /* Rend l'icône blanche par défaut sur un fond sombre */
+}
+
+/* Boutons */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px; /* Padding des boutons réduit */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease; /* Ajout de color pour la transition */
+    margin-top: 15px; /* Marge supérieure réduite */
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: #257a4d; /* Couleur légèrement plus foncée pour le hover */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: none;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    transform: translateY(-2px);
+}
+
+/* Sections générales */
+section {
+    padding: 20px 0; /* Padding vertical des sections réduit */
+    text-align: center;
+    flex-shrink: 0; /* Empêche les sections de rétrécir */
+    display: flex; /* Pour un alignement facile du contenu */
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: center;
+    flex-direction: column; /* Organise le contenu en colonne */
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce */
+}
+
+section h2 {
+    font-size: 2em; /* Taille des titres de section légèrement réduite */
+    margin-bottom: 15px; /* Marge inférieure réduite */
+    color: var(--primary-color);
+    font-family: var(--font-family-secondary);
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+section p {
+    font-size: 1em; /* Taille de police des paragraphes légèrement réduite */
+    margin-bottom: 10px; /* Marge inférieure réduite */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+/* Section Héro */
+#hero {
+    background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover;
+    color: var(--light-text-color);
+    min-height: calc(100vh - var(--header-height) - var(--footer-height) - 150px); /* Ajustement pour laisser de la place à la section suivante et aux paddings */
+    display: flex; /* déjà défini dans section, mais pour être sûr */
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 1;
+    padding: 0; /* Le padding est géré par la hauteur minimale et le centrage du contenu */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce */
+}
+
+/* Overlay sombre pour la section héro pour améliorer la lisibilité du texte */
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay semi-transparent noir */
+    z-index: -1;
+    transition: background 0.3s ease; /* Transition douce */
+}
+
+#hero p {
+    font-size: 1.2em; /* Taille légèrement réduite */
+}
+
+#hero h2 {
+    font-size: 2.8em; /* Taille légèrement réduite */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Section Aperçu Rapide */
+#quick-glance {
+    background: var(--bg-light);
+    padding: 30px 0; /* Padding pour cette section */
+    flex-grow: 1; /* Permet à cette section de prendre l'espace restant */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
+    min-height: 200px; /* Hauteur minimale pour assurer la visibilité */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce */
+}
+
+.glance-features {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacement entre les caractéristiques */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur de petits écrans */
+}
+
+.glance-features div {
+    flex: 1;
+    min-width: 200px; /* Largeur minimale pour chaque feature */
+    max-width: 280px; /* Largeur maximale pour chaque feature */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transition douce */
+}
+
+.glance-features h3 {
+    font-size: 1.1em; /* Taille légèrement réduite */
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+.glance-features p {
+    font-size: 0.9em;
+    margin-bottom: 0;
+    max-width: none;
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+/* Pied de page */
+footer {
+    background: var(--bg-dark);
+    color: var(--light-text-color);
+    padding: 15px 0; /* Padding réduit */
+    text-align: center;
+    margin-top: auto; /* Pousse le pied de page en bas */
+    border-top: 3px solid var(--primary-color);
+    flex-shrink: 0; /* Empêche le pied de page de rétrécir */
+    height: var(--footer-height);
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition douce */
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espacement réduit */
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.85em; /* Taille de police légèrement réduite */
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+.social-links {
+    display: flex;
+    gap: 12px; /* Espacement réduit */
+}
+
+.social-links img {
+    height: 28px; /* Taille des icônes légèrement réduite */
+    transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* --- Styles spécifiques à packs.html --- */
+
+/* Section Packs Héro */
+#packs-hero {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce */
+}
+
+#packs-hero h2 {
+    color: var(--light-text-color);
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
+#packs-hero p {
+    font-size: 1.1em;
+    max-width: 800px;
+}
+
+/* Listing des produits/packs */
+#product-listing {
+    padding: 60px 0;
+    background: var(--bg-light);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce */
+}
+
+.filter-options {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.product-grid-packs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille flexible de packs */
+    gap: 30px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Transition douce */
+    text-align: left; /* Aligne le texte à gauche dans la carte */
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px; /* Hauteur fixe pour les images des packs */
+    object-fit: cover; /* S'assure que l'image couvre l'espace */
+    border-bottom: 1px solid #eee;
+    transition: border-color 0.3s ease; /* Transition douce */
+}
+
+.product-card h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin: 20px 20px 10px;
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+.product-card p.description {
+    font-size: 1em;
+    color: var(--text-color);
+    margin: 0 20px 15px;
+    flex-grow: 1; /* Permet à la description de prendre l'espace */
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+.product-card ul.features {
+    list-style: none;
+    margin: 0 20px 15px;
+    padding-left: 0;
+    font-size: 0.95em;
+    color: #666;
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+.product-card ul.features li {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.product-card ul.features li::before {
+    content: '✓'; /* Icône de coche */
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.product-card .price {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 15px 20px 20px;
+    text-align: right; /* Aligne le prix à droite */
+    transition: color 0.3s ease; /* Transition douce */
+}
+
+.product-card .btn-primary {
+    display: block; /* Le bouton prend toute la largeur */
+    width: calc(100% - 40px); /* Ajuste la largeur avec le padding */
+    margin: 0 20px 20px;
+    text-align: center;
+    padding: 12px 0; /* Padding vertical seulement */
+}
+
+/* Style pour le lien de navigation actif */
+header nav ul li a.active {
+    color: var(--primary-color);
+    /* Ajoutez une petite bordure en bas ou un background si vous voulez */
+    /* border-bottom: 2px solid var(--primary-color); */
+}
+
+/* Section Appel à l'action pour commande sur mesure */
+#custom-order-cta {
+    background: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce */
+}
+
+#custom-order-cta h2 {
+    color: var(--light-text-color);
+}
+
+
+/* NOUVEAU : Styles pour le mode sombre (appliqués au body quand la classe 'dark-mode' est présente) */
+body.dark-mode {
+    background: var(--dark-mode-bg);
+    color: var(--dark-mode-text); /* Couleur du texte par défaut en mode sombre */
+    /* Ajoutez le symbole de lune en arrière-plan ici */
+    background-image: url('../assets/images/moon-pattern.jpg'); /* IMPORTANT: Remplacez par le chemin de VOTRE image de lune */
+    background-repeat: repeat;
+    background-size: 50px; /* Ajustez la taille de votre motif */
+    background-blend-mode: multiply; /* Pour mélanger le motif avec la couleur de fond sombre */
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background: var(--dark-mode-header-footer-bg);
+    border-color: var(--primary-color); /* Garde la couleur principale pour la bordure */
+}
+
+body.dark-mode header .logo h1 {
+    color: var(--dark-mode-text); /* Assure que le titre du logo reste visible */
+}
+
+body.dark-mode header nav ul li a {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode header nav ul li a:hover,
+body.dark-mode header nav ul li a.active {
+    color: var(--primary-color);
+}
+
+
+    /* Le texte du héros est déjà light-text-color, donc il devrait rester visible */
+    /* background-blend-mode: multiply; */ /* Peut être utile pour assombrir l'image de fond du héros */
+
+
+body.dark-mode #hero::before {
+    background: rgba(0, 0, 0, 0.7); /* Rendre l'overlay plus sombre */
+}
+
+/* Correction : Le texte des paragraphes et autres éléments sur les sections de contenu */
+body.dark-mode section p,
+body.dark-mode .glance-features p,
+body.dark-mode .product-card p.description,
+body.dark-mode .product-card ul.features {
+    color: var(--dark-mode-text); /* Applique la couleur de texte du mode sombre */
+}
+
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: var(--primary-color); /* Les titres peuvent garder une couleur accentuée */
+}
+
+
+body.dark-mode .glance-features div { /* Pour index.html */
+    background: var(--dark-mode-card-bg);
+    border-color: var(--dark-mode-border);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .product-card, /* Pour la page packs.html */
+body.dark-mode .faq-item, /* Pour la page faq.html (futur) */
+body.dark-mode .avis-card /* Pour la page avis.html (futur) */
+{
+    background: var(--dark-mode-card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--dark-mode-border);
+}
+
+
+/* Inverser la couleur de l'icône du bouton de thème quand en mode sombre */
+body.dark-mode #theme-toggle img {
+    filter: invert(0); /* Rendre l'icône noire pour le soleil sur fond clair (ou blanc si votre icône lune est foncée) */
+}
+
+/* --- Styles spécifiques à commander.html --- */
+
+/* Section Commande Héro */
+#order-hero {
+    background: var(--secondary-color); /* Couleur secondaire pour le héros de commande */
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#order-hero h2 {
+    color: var(--light-text-color);
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
+#order-hero p {
+    font-size: 1.1em;
+    max-width: 800px;
+}
+
+/* Section Formulaire de Commande */
+#order-form-section {
+    background: var(--bg-light);
+    padding: 60px 0;
+}
+
+#order-form-section .container {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux colonnes de passer à la ligne sur de petits écrans */
+    gap: 40px; /* Espacement entre le formulaire et le récapitulatif */
+    justify-content: center;
+    align-items: flex-start; /* Aligne en haut */
+}
+
+#order-form, .order-summary {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Permet aux deux blocs de prendre l'espace */
+    min-width: 300px; /* Largeur minimale avant de passer à la ligne */
+    max-width: 500px; /* Largeur maximale pour éviter qu'ils ne soient trop larges */
+}
+
+#order-form h3, .order-summary h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Aligne les labels à gauche */
+}
+
+.form-group label {
+    display: block; /* Chaque label sur sa propre ligne */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1em;
+}
+
+.form-group select,
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: #fefefe;
+    appearance: none; /* Cache les flèches par défaut du select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2C114.7L154.7%2C247c-2.7%2C2.7-6.2%2C4-9.7%2C4s-7-1.3-9.7-4L5.4%2C114.7C-1.8%2C107.5-1.8%2C96.8%2C5.4%2C89.6l19.4-19.4c7.2-7.2%2C18.9-7.2%2C26.1%2C0L145%2C179.8l94-94.1c7.2-7.2%2C18.9-7.2%2C26.1%2C0l19.4%2C19.4C294.2%2C96.8%2C294.2%2C107.5%2C287%2C114.7z%22%2F%3E%3C%2Fsvg%3E'); /* Icône de flèche pour select */
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    cursor: pointer;
+}
+
+.form-group input[type="number"] {
+    max-width: 100px; /* Limite la largeur de l'input quantité */
+    text-align: center;
+}
+
+/* Récapitulatif de commande */
+.order-summary {
+    position: sticky; /* Reste visible en haut lors du défilement */
+    top: 20px; /* Distance du haut de la fenêtre */
+}
+
+.order-summary .summary-details p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    text-align: left;
+    color: var(--text-color);
+}
+
+.order-summary .summary-details span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.order-summary .total-price {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+    text-align: right;
+}
+
+.order-summary .total-price p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.order-summary .total-price span {
+    font-size: 1.2em; /* Pour que le prix soit bien mis en évidence */
+    color: var(--primary-color);
+}
+
+.order-summary .btn-primary {
+    display: block; /* Prend toute la largeur disponible */
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.order-summary .disclaimer {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Section Infos Livraison CTA */
+#delivery-info-cta {
+    background: var(--primary-color); /* Une autre couleur d'accent pour cette CTA */
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#delivery-info-cta h2 {
+    color: var(--light-text-color);
+}
+
+/* --- Styles pour le mode sombre sur commander.html --- */
+body.dark-mode #order-form-section {
+    background: var(--dark-mode-bg);
+}
+
+body.dark-mode #order-form,
+body.dark-mode .order-summary {
+    background: var(--dark-mode-card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--dark-mode-border);
+}
+
+body.dark-mode #order-form h3,
+body.dark-mode .order-summary h3 {
+    color: var(--primary-color); /* Garde la couleur accentuée */
+}
+
+body.dark-mode .form-group label {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .form-group select,
+body.dark-mode .form-group input[type="number"] {
+    background-color: var(--dark-mode-bg);
+    border-color: var(--dark-mode-border);
+    color: var(--dark-mode-text);
+    /* Ajuste la couleur de la flèche du select pour le mode sombre */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23e0e0e0%22%20d%3D%22M287%2C114.7L154.7%2C247c-2.7%2C2.7-6.2%2C4-9.7%2C4s-7-1.3-9.7-4L5.4%2C114.7C-1.8%2C107.5-1.8%2C96.8%2C5.4%2C89.6l19.4-19.4c7.2-7.2%2C18.9-7.2%2C26.1%2C0L145%2C179.8l94-94.1c7.2-7.2%2C18.9-7.2%2C26.1%2C0l19.4%2C19.4C294.2%2C96.8%2C294.2%2C107.5%2C287%2C114.7z%22%2F%3E%3C%2Fsvg%3E'); /* Flèche blanche */
+}
+
+body.dark-mode .order-summary .summary-details p {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .order-summary .total-price p {
+    color: var(--secondary-color); /* Garde la couleur accentuée */
+}
+
+body.dark-mode .order-summary .disclaimer {
+    color: #aaa; /* Un gris plus clair pour la clause de non-responsabilité */
+}
+
+
+/* --- Styles spécifiques à avis.html --- */
+
+/* Section Avis Héro */
+#avis-hero {
+    background: var(--primary-color); /* Couleur verte pour le héros d'avis */
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#avis-hero h2 {
+    color: var(--light-text-color);
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
+#avis-hero p {
+    font-size: 1.1em;
+    max-width: 800px;
+}
+
+/* Section Avis Clients */
+#avis-section {
+    background: var(--bg-light);
+    padding: 60px 0;
+}
+
+#avis-section h3 {
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.avis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grille flexible d'avis */
+    gap: 30px;
+    margin-bottom: 40px; /* Espace avant le CTA */
+}
+
+.avis-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.avis-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.avis-card .rating {
+    color: #FFD700; /* Or pour les étoiles */
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.avis-card h4 {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.avis-card .avis-text {
+    font-size: 0.95em;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-style: italic;
+    flex-grow: 1; /* Permet au texte de prendre l'espace */
+}
+
+.avis-card .avis-author {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.avis-card .avis-date {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.cta-review {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--secondary-color);
+    color: var(--light-text-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-review p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: var(--light-text-color);
+}
+
+/* Section Engagement Qualité */
+#quality-guarantee {
+    background: var(--bg-dark); /* Couleur sombre pour cette section */
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#quality-guarantee h2 {
+    color: var(--light-text-color);
+}
+
+/* --- Styles pour le mode sombre sur avis.html --- */
+body.dark-mode #avis-hero {
+    background: var(--dark-mode-header-footer-bg); /* Couleur sombre pour le héros */
+}
+
+body.dark-mode #avis-section {
+    background: var(--dark-mode-bg);
+}
+
+body.dark-mode #avis-section h3 {
+    color: var(--secondary-color); /* Garde la couleur accentuée */
+}
+
+body.dark-mode .avis-card {
+    background: var(--dark-mode-card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--dark-mode-border);
+}
+
+body.dark-mode .avis-card h4 {
+    color: var(--primary-color); /* Garde la couleur accentuée */
+}
+
+body.dark-mode .avis-card .avis-text,
+body.dark-mode .avis-card .avis-author,
+body.dark-mode .avis-card .avis-date {
+    color: var(--dark-mode-text); /* Texte des avis en clair */
+}
+
+body.dark-mode .cta-review {
+    background: var(--dark-mode-header-footer-bg);
+    color: var(--dark-mode-text);
+    border: 1px solid var(--dark-mode-border);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .cta-review p {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode #quality-guarantee {
+    background: var(--dark-mode-bg); /* Ou une autre couleur sombre si vous voulez */
+}
+
+/* --- Styles spécifiques à faq.html --- */
+
+/* Section FAQ Héro */
+#faq-hero {
+    background: var(--secondary-color); /* Couleur secondaire pour le héros FAQ */
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#faq-hero h2 {
+    color: var(--light-text-color);
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
+#faq-hero p {
+    font-size: 1.1em;
+    max-width: 800px;
+}
+
+/* Section FAQ */
+#faq-section {
+    background: var(--bg-light);
+    padding: 60px 0;
+}
+
+#faq-section h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Important pour l'animation de dépliage */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-question::after {
+    content: '+'; /* Icône pour les questions fermées */
+    font-size: 1.5em;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    content: '-'; /* Icône pour les questions ouvertes */
+    transform: rotate(180deg); /* Optionnel : rotation pour le '-' */
+}
+
+.faq-answer {
+    max-height: 0; /* Caché par défaut */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Animation douce pour le dépliage */
+    padding: 0 20px; /* Padding latéral pour le texte */
+}
+
+.faq-answer p {
+    padding-bottom: 20px; /* Padding interne pour le paragraphe */
+    font-size: 0.95em;
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 0; /* Remet la marge à zéro car le padding gère l'espacement */
+}
+
+.faq-question:hover {
+    background-color: #f0f0f0;
+}
+
+.cta-contact-faq {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-contact-faq p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: var(--light-text-color);
+}
+
+/* Section Engagement Durable */
+#sustainability-info {
+    background: var(--bg-dark); /* Une couleur sombre pour cette section */
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#sustainability-info h2 {
+    color: var(--light-text-color);
+}
+
+/* --- Styles pour le mode sombre sur faq.html --- */
+body.dark-mode #faq-hero {
+    background: var(--dark-mode-header-footer-bg);
+}
+
+body.dark-mode #faq-section {
+    background: var(--dark-mode-bg);
+}
+
+body.dark-mode #faq-section h3 {
+    color: var(--primary-color); /* Garde la couleur accentuée */
+}
+
+body.dark-mode .faq-item {
+    background: var(--dark-mode-card-bg);
+    border: 1px solid var(--dark-mode-border);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .faq-question {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .faq-question:hover {
+    background-color: var(--dark-mode-border); /* Un léger fond pour le hover */
+}
+
+body.dark-mode .faq-answer p {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .cta-contact-faq {
+    background: var(--dark-mode-header-footer-bg);
+    color: var(--dark-mode-text);
+    border: 1px solid var(--dark-mode-border);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .cta-contact-faq p {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode #sustainability-info {
+    background: var(--dark-mode-bg);
+}
+
+/* --- Styles spécifiques à contact.html --- */
+
+/* Section Contact Héro */
+#contact-hero {
+    background: var(--primary-color); /* Couleur principale pour le héros Contact */
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#contact-hero h2 {
+    color: var(--light-text-color);
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
+#contact-hero p {
+    font-size: 1.1em;
+    max-width: 800px;
+}
+
+/* Section Formulaire de Contact et Infos */
+#contact-form-section {
+    background: var(--bg-light);
+    padding: 60px 0;
+}
+
+#contact-form-section .container {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux colonnes de passer à la ligne sur de petits écrans */
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start; /* Aligne en haut */
+}
+
+.contact-info, .contact-form-wrapper {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px; /* Largeur minimale avant de passer à la ligne */
+    max-width: 500px; /* Largeur maximale pour éviter qu'ils ne soient trop larges */
+}
+
+.contact-info h3, .contact-form-wrapper h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: left;
+    color: var(--text-color);
+    display: flex; /* Pour aligner icône et texte */
+    align-items: center;
+}
+
+.contact-info p i {
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    color: var(--secondary-color); /* Couleur pour les icônes */
+    font-size: 1.2em; /* Taille de l'icône */
+}
+
+.contact-info p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info p a:hover {
+    text-decoration: underline;
+}
+
+.contact-info .working-hours {
+    margin-top: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+.social-links-contact {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-links-contact img {
+    height: 35px;
+    transition: transform 0.2s ease;
+}
+
+.social-links-contact img:hover {
+    transform: scale(1.1);
+}
+
+/* Styles du formulaire */
+#contact-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1em;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form select,
+#contact-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: #fefefe;
+    transition: border-color 0.3s ease;
+}
+
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2); /* Ombre légère pour le focus */
+}
+
+#contact-form textarea {
+    resize: none; /* Permet de redimensionner verticalement */
+    min-height: 100px;
+}
+
+#contact-form button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.success-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda; /* Vert clair */
+    color: #155724; /* Vert foncé */
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+    display: none; /* Caché par défaut */
+    font-weight: bold;
+}
+
+/* Section Carte */
+#map-section {
+    background: var(--bg-dark); /* Couleur sombre pour la section carte */
+    padding: 60px 0;
+    text-align: center;
+    color: var(--light-text-color);
+}
+
+#map-section h2 {
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+}
+
+.map-placeholder {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden; /* Pour que le iframe ne dépasse pas les bords arrondis */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-placeholder iframe {
+    display: block; /* Supprime l'espace sous l'iframe */
+}
+
+
+/* --- Styles pour le mode sombre sur contact.html --- */
+body.dark-mode #contact-hero {
+    background: var(--dark-mode-header-footer-bg);
+}
+
+body.dark-mode #contact-form-section {
+    background: var(--dark-mode-bg);
+}
+
+body.dark-mode .contact-info,
+body.dark-mode .contact-form-wrapper {
+    background: var(--dark-mode-card-bg);
+    border: 1px solid var(--dark-mode-border);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .contact-info h3,
+body.dark-mode .contact-form-wrapper h3 {
+    color: var(--primary-color);
+}
+
+body.dark-mode .contact-info p {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .contact-info p i {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .contact-info p a {
+    color: var(--dark-mode-text); /* Garde le lien clair en mode sombre */
+}
+
+body.dark-mode .contact-info p a:hover {
+    color: var(--primary-color); /* Met en évidence au hover */
+}
+
+body.dark-mode .contact-info .working-hours {
+    color: #aaa; /* Un gris plus clair */
+}
+
+body.dark-mode #contact-form label {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode #contact-form input[type="text"],
+body.dark-mode #contact-form input[type="email"],
+body.dark-mode #contact-form select,
+body.dark-mode #contact-form textarea {
+    background-color: var(--dark-mode-bg);
+    border-color: var(--dark-mode-border);
+    color: var(--dark-mode-text);
+    /* Ajuste la flèche du select si besoin, comme dans commander.html */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23e0e0e0%22%20d%3D%22M287%2C114.7L154.7%2C247c-2.7%2C2.7-6.2%2C4-9.7%2C4s-7-1.3-9.7-4L5.4%2C114.7C-1.8%2C107.5-1.8%2C96.8%2C5.4%2C89.6l19.4-19.4c7.2-7.2%2C18.9-7.2%2C26.1%2C0L145%2C179.8l94-94.1c7.2-7.2%2C18.9-7.2%2C26.1%2C0l19.4%2C19.4C294.2%2C96.8%2C294.2%2C107.5%2C287%2C114.7z%22%2F%3E%3C%2Fsvg%3E'); /* Flèche blanche */
+}
+
+body.dark-mode #contact-form input:focus,
+body.dark-mode #contact-form select:focus,
+body.dark-mode #contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.3); /* Ombre plus visible en sombre */
+}
+
+.success-message.dark-mode { /* Si on veut un style différent pour la notif de succès en mode sombre */
+    background-color: #1a4d2c; /* Vert plus foncé */
+    color: #c3e6cb; /* Vert plus clair */
+    border-color: #28a745;
+}
+
+body.dark-mode #map-section {
+    background: var(--dark-mode-bg);
+}
+
+body.dark-mode #map-section h2,
+body.dark-mode #map-section p {
+    color: var(--dark-mode-text);
+}
+
+.map-placeholder {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .map-placeholder {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}

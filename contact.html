@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mon Projet Bois</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Logo Mon Projet Bois">
+                <h1>Mon Projet Bois</h1>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="packs.html">Nos Packs</a></li>
+                    <li><a href="commander.html">Commander</a></li>
+                    <li><a href="avis.html">Avis Clients</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" aria-label="Basculer le thème clair/sombre">
+                <img src="assets/images/icon-moon.png" alt="Mode Sombre">
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact-hero">
+            <div class="container">
+                <h2>Contactez-nous</h2>
+                <p>Nous sommes là pour répondre à toutes vos questions et vous accompagner dans votre projet.</p>
+            </div>
+        </section>
+
+        <section id="contact-form-section">
+            <div class="container">
+                <div class="contact-info">
+                    <h3>Nos Coordonnées</h3>
+                    <p><i class="icon-map-marker"></i> 123 Rue du Bois Durable, 75001 Paris, France</p>
+                    <p><i class="icon-phone"></i> +33 1 23 45 67 89</p>
+                    <p><i class="icon-envelope"></i> <a href="mailto:contact@monprojetbois.com">contact@monprojetbois.com</a></p>
+                    <p class="working-hours">Du lundi au vendredi : 9h00 - 18h00</p>
+                    <div class="social-links-contact">
+                        <a href="#" aria-label="Facebook"><img src="assets/images/facebook-icon.png" alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="assets/images/instagram-icon.png" alt="Instagram"></a>
+                        <a href="#" aria-label="WhatsApp"><img src="assets/images/whatsapp-icon.png" alt="WhatsApp"></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3>Envoyez-nous un message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom complet :</label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom et prénom">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail :</label>
+                            <input type="email" id="email" name="email" required placeholder="votre.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet :</label>
+                            <select id="subject" name="subject">
+                                <option value="general">Question générale</option>
+                                <option value="quote">Demande de devis personnalisé</option>
+                                <option value="support">Support technique</option>
+                                <option value="review">Donner mon avis</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre message :</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Décrivez votre demande ici..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Envoyer le message</button>
+                    </form>
+                    <div id="form-message" class="success-message"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map-section">
+            <div class="container">
+                <h2>Où nous trouver</h2>
+                <div class="map-placeholder">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.991427011409!2d2.2944813156740667!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2962d3e41d%3A0x7d6c55c0f1e8f2d!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1678912345678!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p>N'hésitez pas à venir nous rendre visite sur rendez-vous.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mon Projet Bois. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><img src="assets/images/facebook-icon.png" alt="Facebook"></a>
+                <a href="#" aria-label="Instagram"><img src="assets/images/instagram-icon.png" alt="Instagram"></a>
+                <a href="#" aria-label="WhatsApp"><img src="assets/images/whatsapp-icon.png" alt="WhatsApp"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script> </body>
+</html>

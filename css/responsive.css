@@ -1,0 +1,402 @@
+/* Fichier: responsive.css */
+
+/* --- POINTS DE RUPTURE (BREAKPOINTS) ---
+   Ces valeurs sont des tailles d'écran maximales.
+   Les styles définis à l'intérieur s'appliqueront pour des écrans
+   inférieurs ou égaux à cette largeur.
+*/
+
+/* Styles pour écrans de taille tablette (max 992px de large) */
+@media (max-width: 992px) {
+    /* Général */
+    .container {
+        width: 95%; /* Utilise plus de largeur sur les tablettes */
+        padding: 10px 15px; /* Ajuste le padding */
+    }
+
+    /* En-tête */
+    header .logo h1 {
+        font-size: 1.5em; /* Légèrement plus petit */
+    }
+
+    header nav ul li {
+        margin-left: 18px; /* Espacement réduit */
+    }
+
+    header nav ul li a {
+        font-size: 0.95em; /* Texte de navigation plus petit */
+    }
+
+    /* Section Héro */
+    #hero h2 {
+        font-size: 2.5em; /* Titre héro plus petit */
+    }
+
+    #hero p {
+        font-size: 1.1em; /* Texte descriptif plus petit */
+    }
+
+    /* Section Aperçu Rapide */
+    #quick-glance .container {
+        padding-bottom: 20px; /* Moins de padding en bas */
+    }
+
+    .glance-features {
+        flex-direction: column; /* Les caractéristiques s'empilent sur les tablettes */
+        align-items: center; /* Centre les éléments empilés */
+        gap: 15px; /* Espacement réduit entre les éléments */
+    }
+
+    .glance-features div {
+        max-width: 350px; /* Limite la largeur des éléments empilés */
+        width: 100%; /* Prend toute la largeur disponible dans le max-width */
+    }
+
+    section h2 {
+        font-size: 1.8em; /* Titres de section plus petits */
+    }
+
+    section p {
+        font-size: 0.95em; /* Texte de section plus petit */
+    }
+}
+
+/* Styles pour écrans de taille mobile (max 768px de large) */
+@media (max-width: 768px) {
+    /* En-tête (navigation hamburger sur mobile) */
+    header .container {
+        flex-direction: column; /* Empile logo et navigation */
+        gap: 10px; /* Espacement entre eux */
+        align-items: center; /* Centre les éléments */
+    }
+
+    header .logo {
+        margin-bottom: 10px; /* Marge sous le logo */
+    }
+
+    header .logo h1 {
+        display: none; /* Cache le titre du logo sur les très petits écrans pour gagner de la place */
+    }
+
+    header nav ul {
+        flex-wrap: wrap; /* Permet aux liens de navigation de passer à la ligne */
+        justify-content: center; /* Centre les liens quand ils sont sur plusieurs lignes */
+        width: 100%; /* Prend toute la largeur pour centrage */
+    }
+
+    header nav ul li {
+        margin: 5px 10px; /* Réduit encore l'espacement et ajoute de la marge verticale */
+    }
+
+    header nav ul li a {
+        font-size: 0.9em; /* Encore plus petit pour les liens de navigation */
+    }
+
+    /* Section Héro */
+    #hero {
+        min-height: calc(100vh - var(--header-height) - var(--footer-height) - 100px); /* Ajustement pour mobile */
+        padding: 40px 0; /* Padding pour les très petits écrans si le contenu est serré */
+    }
+
+    #hero h2 {
+        font-size: 2em; /* Titre héro adapté */
+        margin-bottom: 15px;
+    }
+
+    #hero p {
+        font-size: 1em;
+        padding: 0 10px; /* Ajoute un léger padding pour le texte */
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.9em; /* Taille de police des boutons réduite */
+    }
+
+    /* Section Aperçu Rapide */
+    #quick-glance {
+        padding: 20px 0; /* Padding réduit */
+    }
+
+    #quick-glance h2 {
+        font-size: 1.6em; /* Titre de section plus petit */
+    }
+
+    #quick-glance p {
+        font-size: 0.9em; /* Texte de section plus petit */
+    }
+
+    .glance-features {
+        gap: 10px; /* Espacement encore plus réduit */
+    }
+
+    .glance-features div {
+        padding: 10px; /* Padding des cartes réduit */
+    }
+
+    .glance-features h3 {
+        font-size: 1em;
+    }
+
+    .glance-features p {
+        font-size: 0.85em;
+    }
+
+    /* Pied de page */
+    footer .container {
+        gap: 5px; /* Espacement réduit */
+    }
+
+    footer p {
+        font-size: 0.75em; /* Copyright plus petit */
+    }
+
+    .social-links img {
+        height: 25px; /* Icônes sociales plus petites */
+    }
+}
+
+/* Styles pour écrans de très petite taille (mobiles étroits, max 480px de large) */
+@media (max-width: 480px) {
+    header .logo img {
+        height: 40px; /* Logo encore plus petit */
+    }
+    
+    header nav ul li {
+        margin: 3px 8px; /* Espacement minimal */
+    }
+
+    header nav ul li a {
+        font-size: 0.85em; /* Texte de navigation très petit */
+    }
+
+    #hero h2 {
+        font-size: 1.8em;
+    }
+
+    #hero p {
+        font-size: 0.9em;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+
+    #quick-glance h2 {
+        font-size: 1.4em;
+    }
+
+    #quick-glance p {
+        font-size: 0.85em;
+    }
+
+    .glance-features div {
+        min-width: 100%; /* Chaque carte prend la pleine largeur */
+        max-width: 250px; /* Max pour les très petits écrans */
+    }
+}
+
+/* Fichier: responsive.css */
+
+/* ... (votre code responsive.css existant) ... */
+
+/* Styles pour écrans de taille tablette (max 992px de large) */
+@media (max-width: 992px) {
+    /* ... (vos styles existants pour 992px) ... */
+
+    /* Packs Page */
+    #packs-hero h2 {
+        font-size: 2.2em;
+    }
+    #packs-hero p {
+        font-size: 1em;
+    }
+    .product-grid-packs {
+        gap: 20px; /* Réduit l'espacement entre les cartes */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste la taille minimale des cartes */
+    }
+    .product-card h3 {
+        font-size: 1.6em;
+    }
+    .product-card p.description {
+        font-size: 0.95em;
+    }
+    .product-card ul.features {
+        font-size: 0.9em;
+    }
+    .product-card .price {
+        font-size: 1.4em;
+    }
+}
+
+/* Styles pour écrans de taille mobile (max 768px de large) */
+@media (max-width: 768px) {
+    /* ... (vos styles existants pour 768px) ... */
+
+    /* Packs Page */
+    #packs-hero h2 {
+        font-size: 1.8em;
+    }
+    #packs-hero p {
+        font-size: 0.95em;
+    }
+    .product-grid-packs {
+        grid-template-columns: 1fr; /* Une seule colonne pour les mobiles */
+        gap: 20px;
+    }
+    .product-card {
+        margin: 0 auto; /* Centre la carte */
+        max-width: 350px; /* Limite la largeur de la carte unique */
+    }
+    .product-card img {
+        height: 200px; /* Hauteur des images réduite sur mobile */
+    }
+    .product-card h3 {
+        font-size: 1.4em;
+    }
+    .product-card p.description,
+    .product-card ul.features {
+        font-size: 0.85em;
+    }
+    .product-card .price {
+        font-size: 1.2em;
+    }
+    .product-card .btn-primary {
+        padding: 10px 0;
+        font-size: 0.9em;
+    }
+}
+
+/* Styles pour écrans de très petite taille (mobiles étroits, max 480px de large) */
+@media (max-width: 480px) {
+    /* ... (vos styles existants pour 480px) ... */
+
+    /* Packs Page */
+    .product-card {
+        max-width: 100%; /* Prend toute la largeur disponible */
+        border-radius: 5px;
+    }
+    .product-card h3 {
+        font-size: 1.2em;
+        margin: 15px 15px 8px;
+    }
+    .product-card p.description,
+    .product-card ul.features {
+        font-size: 0.8em;
+        margin: 0 15px 10px;
+    }
+    .product-card ul.features li::before {
+        left: -5px; /* Ajuste la position de l'icône de coche */
+    }
+    .product-card .price {
+        font-size: 1.1em;
+        margin: 10px 15px 15px;
+    }
+    .product-card .btn-primary {
+        width: calc(100% - 30px); /* Ajuste la largeur avec le padding */
+        margin: 0 15px 15px;
+        padding: 8px 0;
+        font-size: 0.85em;
+    }
+}
+
+/* NOUVEAU : Styles pour le bouton de bascule du thème */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 20px;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+#theme-toggle img {
+    height: 28px; /* Taille de l'icône */
+    width: 28px;
+    filter: invert(1); /* Rend l'icône blanche par défaut sur un fond sombre */
+}
+
+/* NOUVEAU : Styles pour le mode sombre (appliqués au body quand la classe 'dark-mode' est présente) */
+body.dark-mode {
+    background: var(--dark-mode-bg);
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background: var(--dark-mode-header-footer-bg);
+    border-color: var(--primary-color); /* Garde la couleur principale pour la bordure */
+}
+
+body.dark-mode header .logo h1 {
+    color: var(--dark-mode-text); /* Assure que le titre du logo reste visible */
+}
+
+body.dark-mode header nav ul li a {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode header nav ul li a:hover,
+body.dark-mode header nav ul li a.active {
+    color: var(--primary-color);
+}
+
+body.dark-mode #hero {
+    /* Si vous avez une image de fond dans le héros qui ne s'adapte pas bien au mode sombre, vous pouvez ajuster l'overlay */
+    /* background-blend-mode: multiply; */ /* Peut être utile pour assombrir l'image */
+}
+
+body.dark-mode #hero::before {
+    background: rgba(0, 0, 0, 0.7); /* Rendre l'overlay plus sombre */
+}
+
+body.dark-mode #about,
+body.dark-mode #product-listing,
+body.dark-mode #faq-section, /* Pour les futures pages */
+body.dark-mode #contact-section, /* Pour les futures pages */
+body.dark-mode #avis-section /* Pour les futures pages */
+{
+    background: var(--dark-mode-bg);
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .product-card, /* Pour la page packs.html */
+body.dark-mode .faq-item, /* Pour la page faq.html */
+body.dark-mode .avis-card /* Pour la page avis.html */
+{
+    background: var(--dark-mode-card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--dark-mode-border);
+}
+
+body.dark-mode .product-card h3 {
+    color: var(--primary-color); /* Garde le vert pour les titres de carte */
+}
+
+body.dark-mode .product-card p.description,
+body.dark-mode .product-card ul.features,
+body.dark-mode .glance-features h3, /* Pour index.html */
+body.dark-mode .glance-features p /* Pour index.html */
+{
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .glance-features div { /* Pour index.html */
+    background: var(--dark-mode-card-bg);
+    border-color: var(--dark-mode-border);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+/* Inverser la couleur de l'icône du bouton de thème quand en mode sombre */
+body.dark-mode #theme-toggle img {
+    filter: invert(0); /* Rendre l'icône noire pour le soleil */
+}
